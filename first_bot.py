@@ -1,6 +1,6 @@
 import telepot
 import time
-token= '864503331:AAE0RwnKZAXQ1h6dIQsQwlO3iQ0ud42gNfA'
+token= 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
 TelegramBot = telepot.Bot(token)
 updates=TelegramBot.getUpdates()
 n_length=len(updates)
