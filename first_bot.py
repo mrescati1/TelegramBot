@@ -1,5 +1,7 @@
 import telepot
 import time
+import os
+import random
 f = open("api_key", "r")
 token= f.read()
 print token
@@ -10,10 +12,14 @@ while True:
     if len(updates) > n_length:
         chat_id= updates[-1]['message']['chat']['id']
         print(updates[-1]['message']['from']['username']+ ' ' + updates[-1]['message']['text'])
-        n_length=len(updates)
-        user_input = raw_input('Michael: ')
-
-        TelegramBot.sendMessage(chat_id, user_input)
+        if updates[-1]['message']['text'].find('HollySenzaBenji'):
+		path = '~/Holly'
+                files = os.listdir(path)
+                i= random.randint(0, len(files)-1)
+                photo= files[i]
+                sendPhoto(chat_id, photo)
+        updates=TelegramBot.getUpdates()
+        n_length= len(updates)
     time.sleep(0.1)
     updates=TelegramBot.getUpdates()
     
