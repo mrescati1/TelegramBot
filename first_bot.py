@@ -1,7 +1,9 @@
 import telepot
 import time
-token= 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-TelegramBot = telepot.Bot(token)
+f = open("api_key", "r")
+token= f.read()
+print token
+TelegramBot = telepot.Bot(token[:-1])
 updates=TelegramBot.getUpdates()
 n_length=len(updates)
 while True:
